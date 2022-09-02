@@ -1,0 +1,8 @@
+---
+#include <stddef.h>
+
+typedef struct {
+    char* ptr;
+    size_t len;
+    size_t capacity;
+} RustString;

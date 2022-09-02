@@ -1,0 +1,8 @@
+---
+#include <stdint.h>
+
+typedef struct {
+    void *manager_ptr;
+    unsigned long handle;
+    void* (*get_fun)(uint16_t);
+} AtriManager;

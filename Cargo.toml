@@ -1,0 +1,22 @@
+[package]
+name = "atri_kotlin"
+version = "0.1.0"
+edition = "2021"
+authors = ["LaoLittle"]
+description = "AtriQQ Kotlin plugin"
+keywords = [
+    "Atri",
+    "Kotlin",
+    "oicq"
+]
+license = "AGPL-3.0"
+homepage = "https://github.com/LaoLittle/atri_qq"
+repository = "https://github.com/LaoLittle/atri_qq"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+atri_ffi = "0"

@@ -1,0 +1,22 @@
+---
+typedef struct {
+    void* ptr;
+    void (*drop)(void*);
+} Managed;
+
+typedef struct ManagedCloneable {
+    Managed value;
+    struct ManagedCloneable (*clone)(void*);
+} ManagedCloneable;
+
+typedef struct {
+    void* (*new)(void);
+    void (*enable)(void*);
+    void (*disable)(void*);
+} PluginVTable;
+
+typedef struct {
+    Managed instance;
+    char should_drop;
+    PluginVTable vtb;
+} PluginInstance;
