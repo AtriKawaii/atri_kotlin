@@ -21,11 +21,11 @@ kotlin {
         target.apply {
             compilations
                 .getByName("main")
-                .cinterops
-                .apply {
+                .cinterops {
                     create("atri_manager")
                     create("atri_plugin")
                     create("values")
+                    create("kotlin_object")
                 }
 
             binaries {

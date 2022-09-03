@@ -9,14 +9,14 @@ pub struct AtriManager {
 
 #[no_mangle]
 extern "C" fn on_init() -> PluginInstance {
-    return unsafe {
-        kotlin_init()()
-    }
+    return unsafe { kotlin_init()() };
 }
 
 #[no_mangle]
 extern "C" fn atri_manager_init(manager: AtriManager) {
-    unsafe { kotlin_atri_manager_init(manager); }
+    unsafe {
+        kotlin_atri_manager_init(manager);
+    }
 }
 
 extern "C" {

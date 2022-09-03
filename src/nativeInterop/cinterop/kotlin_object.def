@@ -1,0 +1,6 @@
+---
+void* ptrToPtr(void* ptr) { return ptr; }
+
+static void* (*k_obj_to_ptr)(void*) = ptrToPtr;
+
+static void* (*k_ptr_to_obj)(void*) = ptrToPtr;

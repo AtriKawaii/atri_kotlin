@@ -4,17 +4,13 @@ import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.CValue
 import kotlinx.cinterop.staticCFunction
 
-object MyPlugin: Plugin("") {
+object MyPlugin : Plugin("Name") {
     override fun enable() {
-        info("Plugin from Kotlin/Native")
-        error("This is an error")
-        warn("This is warn")
-        debug("Debug info")
-        trace("Tracing!")
+        info("From Kotlin/Native!")
     }
 
     override fun unload() {
-        info("Unloading...")
+
     }
 }
 

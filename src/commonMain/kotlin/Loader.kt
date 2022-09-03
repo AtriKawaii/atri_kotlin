@@ -1,12 +1,14 @@
-import atri_manager.AtriManager as CAtriManager
 import kotlinx.cinterop.*
 import kotlinx.cinterop.internal.CStruct
-import platform.posix.*
+import platform.posix.size_t
+import platform.posix.uint16_t
+import platform.posix.uint8_t
 import values.RustString
+import atri_manager.AtriManager as CAtriManager
 
 @CStruct("AtriVTable")
 data class AtriVTable(
-    val logInfo: CPointer<CFunction<(handle: size_t,manager: COpaquePointer, level: uint8_t, log: CValue<RustString>) -> Unit>>
+    val logInfo: CPointer<CFunction<(handle: size_t, manager: COpaquePointer, level: uint8_t, log: CValue<RustString>) -> Unit>>
 )
 
 data class AtriManager(
