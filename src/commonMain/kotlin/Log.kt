@@ -1,8 +1,7 @@
 import kotlinx.cinterop.*
 import platform.posix.memcpy
-import platform.posix.size_t
 import platform.posix.uint8_t
-import values.RustString
+import values.RustStr
 
 fun trace(s: String) = log(s, 0u)
 
@@ -20,16 +19,14 @@ fun log(s: String, level: uint8_t) {
 
     bytes.usePinned { pin ->
         memcpy(pointer, pin.addressOf(0), bytes.size.convert())
-    }
 
-    val rs = cValue<RustString> {
-        val size = bytes.size.convert<size_t>()
-        ptr = pointer.reinterpret()
-        len = size
-        capacity = size
-    }
+        val rs = cValue<RustStr>() {
+            ptr = pin.addressOf(0)
+            len = bytes.size.convert()
+        }
 
-    ATRI_MANAGER.apply {
-        (ATRI_VTABLE.logInfo)(handle.convert(), managerPtr, level, rs)
+        ATRI_MANAGER.apply {
+            (ATRI_VTABLE.log)(handle.convert(), managerPtr, level, rs)
+        }
     }
 }

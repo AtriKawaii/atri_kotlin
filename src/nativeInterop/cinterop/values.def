@@ -6,3 +6,8 @@ typedef struct {
     size_t len;
     size_t capacity;
 } RustString;
+
+typedef struct {
+    char* ptr;
+    size_t len;
+} RustStr;
